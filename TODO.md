@@ -1,48 +1,47 @@
 # TODO
 
 
-## Analysis
-
-
-[x] Define project (1)
-[ ] Define requirements (1)
-[ ] Document visual references for the gui design (2)
-[ ] DB Data dictionary (2)
+Analysis
+- [x] Define project (1)
+- [ ] Define requirements (1)
+- [ ] Document visual references for the gui design (2)
+- [ ] DB Data dictionary (2)
 
 
 ## Design
 
-[ ] System structure
-    [ ] Architecture (2)
-    [ ] Component diagram (2)
-    [ ] Package diagram (2)
+- [ ] System structure
+    - [ ] Architecture (2)
+    - [ ] Component diagram (2)
+    - [ ] Package diagram (2)
 
-[ ] System behavior
-    [ ] Use case diagram (1)
-    [ ] Activity diagram (4)
+- [ ] System behavior
+    - [ ] Use case diagram (1)
+    - [ ] Activity diagram (4)
 
-[ ] DB
-    [ ] Entity-relationship logical diagram (1)
+- [ ] DB
+    - [ ] Entity-relationship logical diagram (1)
 
-[ ] GUI
-    [x] Screens (2)
-    [ ] Frames (2)
-    [ ] Elements (2)
+- [ ] GUI
+    - [x] Screens (2)
+    - [ ] Frames (2)
+    - [ ] Elements (2)
 
 
 ## Develop
 
-[ ] DB
-    [ ] Implement DB (2)
-    [ ] CRUD API (2)
+- [ ] DB
 
-[ ] Data analysis routines 
+    - [ ] Implement DB (2)
+    - [ ] CRUD API (2)
+
+- [ ] Data analysis routines 
     
-[ ] GUI
+- [ ] GUI
 
-[ ] Events triggers
+- [ ] Events triggers
 
-[ ] Graphs and Charts
+- [ ] Graphs and Charts
 
 
 ## Refactor
