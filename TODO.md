@@ -14,12 +14,12 @@
 
 [ ] System structure
     [ ] Architecture (2)
-    [ ] Component diagram (2)
+    [ ] GUI class diagram (2)
     [ ] Package diagram (2)
 
 [ ] System behavior
     [ ] Use case diagram (1)
-    [ ] Activity diagram (4)
+    [ ] Activity diagram (2)
 
 [ ] DB
     [ ] Entity-relationship logical diagram (1)
