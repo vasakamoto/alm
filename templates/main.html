@@ -8,7 +8,7 @@
             <h3>Last Album Inserted</h3>
         </header>
             {% if g.last_album %}
-                <p>Some album</p>
+                <p>{{ g.last_album['ARTISTS'] }} - {{ g.last_album['TITLE'] }}</p>
             {% else %}
                 <p>Your album collection is empty</p>
             {% endif %}
@@ -16,7 +16,7 @@
             <h3>Last Single Inserted</h3>
         </header>
             {% if g.last_single %}
-                <p>Some album</p>
+                <p>{{ g.last_single['ARTISTS'] }} - {{ g.last_single['TITLE'] }}</p>
             {% else %}
                 <p>Your single collection is empty</p>
             {% endif %}
@@ -24,7 +24,7 @@
             <h3>Top 5 Albums</h3>
         </header>
             {% if g.top5_album %}
-                <p>Some album</p>
+                <p>{{ g.top5_album['ARTISTS'] }} - {{ g.top5_album['TITLE'] }}</p>
             {% else %}
                 <p>Your album collection is empty</p>
             {% endif %}
@@ -32,7 +32,7 @@
             <h3>Top 5 Singles</h3>
         </header>
             {% if g.top5_single %}
-                <p>Some album</p>
+                <p>{{ g.top5_single['ARTISTS'] }} - {{ g.top5_single['TITLE'] }}</p>
             {% else %}
                 <p>Your single collection is empty</p>
             {% endif %}

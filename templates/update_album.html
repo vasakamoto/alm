@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}ALM - Album{% endblock %}
+
+{% block section %}
+    <section class="insert-album">
+        <header>
+            <h2>Album</h2>
+        </header>
+        <hr>
+        <main>
+            <form id="album-form" method="post">
+                <label for="title">Title</label>
+            <input type="text" name="title" id="title"  value="{{ request.form['title'] or album['TITLE'] }}" required>
+
+                <label for="artists">Artists</label>
+                <input type="text" name="artists" id="artists" value="{{ request.form['artists'] or album['ARTISTS'] }}" required>
+
+                <label for="genre">Genre</label>
+                <input type="text" name="genre" id="genre" value="{{ request.form['genre'] or album['GENRE'] }}" required>
+                
+                <label for="subgenre">Subgenre</label>
+                <input type="text" name="subgenre" id="subgenre" value="{{ request.form['subgenre'] or album['SUBGENRE'] }}" required>
+
+                <label for="rating">Rating</label>
+                <input type="number" name="rating" id="rating" value="{{ request.form['rating'] or album['RATING'] }}" required>
+
+                <label for="n_tracks">Number of tracks</label>
+                <input type="number" name="n_tracks" id="n_tracks" value="{{ request.form['n_tracks'] or album['N_TRACKS'] }}" required>
+
+                <label for="length">Length</label>
+                <input type="number" name="length" id="length" value="{{ request.form['length'] or album['LENGTH'] }}" required>
+
+                <label for="dt_release">Release Date</label>
+                <input type="date" name="dt_release" id="dt_release" value="{{ request.form['dt_release'] or album['DT_RELEASE'] }}" required>
+
+                <input type="submit" value="Update Album">
+                <button type="button" onclick="document.getElementById('album-form').reset()">Reset Fields</button>
+            </form>
+            <hr>
+                <form action="{{ url_for('index.delete_album', id=album['id']) }}" method="post">
+                    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+                </form>
+        </main>
+    </section>
+{% endblock %}

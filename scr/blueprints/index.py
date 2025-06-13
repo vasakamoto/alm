@@ -30,11 +30,11 @@ def main():
     db = get_db()
 
     g.last_album = db.execute(
-        f"SELECT * FROM {g.user['username']}_ALBUM ORDER BY DT_INSERTED DESC LIMIT 1"
+        f"SELECT * FROM {g.user['username']}_ALBUM WHERE ROWID = (SELECT MAX(ROWID) FROM {g.user['username']}_ALBUM)"
     ).fetchone()
 
     g.last_single = db.execute(
-        f"SELECT * FROM {g.user['username']}_SINGLE ORDER BY DT_INSERTED DESC LIMIT 1"
+        f"SELECT * FROM {g.user['username']}_SINGLE WHERE ROWID = (SELECT MAX(ROWID) FROM {g.user['username']}_SINGLE)"
     ).fetchone()
 
     g.top5_album = db.execute(
@@ -77,17 +77,6 @@ def create_album():
         dt_release = request.form['dt_release']
         dt_inserted = date.today().isoformat()
 
-        print(type(id))
-        print(type(title))
-        print(type(artists))
-        print(type(genre))
-        print(type(subgenre))
-        print(type(rating))
-        print(type(n_tracks))
-        print(type(length))
-        print(type(dt_release))
-        print(type(dt_inserted))
-
         if not title and artists and genre and subgenre and rating and n_tracks and length and dt_release:
             error = "All fields are required, fill them properly, please..."
 
@@ -105,5 +94,52 @@ def create_album():
             db.commit()
             return redirect(url_for('index.album'))
 
-
     return render_template('create_album.html')
+
+
+@bp.route('/album/<id>/update', methods=('GET', 'POST'))
+@login_required
+def update_album(id):
+
+    db = get_db()
+    album = db.execute(f"SELECT * FROM {g.user['username']}_ALBUM WHERE id = '{id}'").fetchone()
+
+    if request.method == 'POST':
+        error = None
+
+        title = request.form['title']
+        artists = request.form['artists'] 
+        genre = request.form['genre']
+        subgenre = request.form['subgenre']
+        rating = float(request.form['rating'])
+        n_tracks = int(request.form['n_tracks'])
+        length = float(request.form['length'])
+        dt_release = request.form['dt_release']
+
+        if not title and artists and genre and subgenre and rating and n_tracks and length and dt_release:
+            error = "All fields are required, fill them properly, please..."
+
+        if error is not None:
+            flash(error)
+        else:
+            db.execute(
+                f"""UPDATE {g.user['username']}_ALBUM SET TITLE = ?, ARTISTS = ?,
+                GENRE = ?, SUBGENRE = ?, RATING = ?, N_TRACKS = ?, LENGTH = ?, 
+                DT_RELEASE = ?
+                WHERE id = ?
+                """,
+                (title, artists, genre, subgenre, rating, n_tracks, length, dt_release, id)
+            )
+            db.commit()
+            return redirect(url_for('index.album'))
+
+    return render_template('update_album.html', album=album)
+
+
+@bp.route('/album/<id>/delete', methods=('POST',))
+@login_required
+def delete_album(id):
+    db = get_db()
+    db.execute(f'DELETE FROM {g.user['username']}_ALBUM WHERE id = ?', (id,))
+    db.commit()
+    return redirect(url_for('index.album'))

@@ -22,42 +22,22 @@
                         <th>Length</th>
                         <th>Release Date</th>
                         <th>Inserted Date</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody class="table-rows">
-                    <tr>
-                        <td>Dark Side of the Moon</td>
-                        <td>Pink Floyd</td>
-                        <td>Rock</td>
-                        <td>Progressive Rock</td>
-                        <td>9.5</td>
-                        <td>10</td>
-                        <td>42.59</td>
-                        <td>1973-03-01</td>
-                        <td>2025-06-12</td>
-                    </tr>
-                    <tr>
-                        <td>The Wall</td>
-                        <td>Pink Floyd</td>
-                        <td>Rock</td>
-                        <td>Progressive Rock</td>
-                        <td>9.7</td>
-                        <td>26</td>
-                        <td>81.58</td>
-                        <td>1979-11-30</td>
-                        <td>2025-06-12</td>
-                    </tr>
                     {% for album in g.albums %}
                         <tr>
-                            <td>{{ album['title'] }}</td>
-                            <td>{{ album['artists'] }}</td>
+                            <td>{{ album['TITLE'] }}</td>
+                            <td>{{ album['ARTISTS'] }}</td>
                             <td>{{ album['GENRE'] }}</td>
-                            <td>{{ album['subgenre'] }}</td>
-                            <td>{{ album['rating'] }}</td>
-                            <td>{{ album['n_tracks'] }}</td>
-                            <td>{{ album['length'] }}</td>
-                            <td>{{ album['dt_release'] }}</td>
-                            <td>{{ album['dt_inserted'] }}</td>
+                            <td>{{ album['SUBGENRE'] }}</td>
+                            <td>{{ album['RATING'] }}</td>
+                            <td>{{ album['N_TRACKS'] }}</td>
+                            <td>{{ album['LENGTH'] }}</td>
+                            <td>{{ album['DT_RELEASE'] }}</td>
+                            <td>{{ album['DT_INSERTED'] }}</td>
+                            <td><a class="action" href="{{ url_for('index.update_album', id=album['id']) }}">Edit</a></td>
                         </tr>
                     {% endfor %}
                 </tbody>
