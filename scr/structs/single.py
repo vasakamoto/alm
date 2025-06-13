@@ -10,6 +10,7 @@ from datetime import (
 class Single:
     """Structure to store data related to table SINGLES in memory data from DB"""
 
+    id : str
     title : str
     artists : str
     genre : str

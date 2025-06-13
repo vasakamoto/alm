@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}ALM{% endblock %}
+
+{% block section %}
+    <section class="main">
+        <header>
+            <h3>Last Album Inserted</h3>
+        </header>
+            {% if g.last_album %}
+                <p>Some album</p>
+            {% else %}
+                <p>Your album collection is empty</p>
+            {% endif %}
+        <header>
+            <h3>Last Single Inserted</h3>
+        </header>
+            {% if g.last_single %}
+                <p>Some album</p>
+            {% else %}
+                <p>Your single collection is empty</p>
+            {% endif %}
+        <header>
+            <h3>Top 5 Albums</h3>
+        </header>
+            {% if g.top5_album %}
+                <p>Some album</p>
+            {% else %}
+                <p>Your album collection is empty</p>
+            {% endif %}
+        <header>
+            <h3>Top 5 Singles</h3>
+        </header>
+            {% if g.top5_single %}
+                <p>Some album</p>
+            {% else %}
+                <p>Your single collection is empty</p>
+            {% endif %}
+    </section>
+{% endblock %}

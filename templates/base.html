@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">    </head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <body>
+
+        <nav>
+            {% if g.user %}
+                <h1><a href="{{ url_for('index.main') }}">ALM</a></h1>
+                <ul>
+                    <li><a href="{{ url_for('index.album') }}">Albums</a>
+                    <li><a href="{{ url_for('auth.logout') }}">Singles</a>
+                    <li><a href="{{ url_for('auth.logout') }}">Analytics</a>
+                    <li><a href="{{ url_for('auth.logout') }}">Configurations</a> <!-- change for an icon-->
+                    <li><span>{{ g.user['username'] }}</span>
+                    <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+                </ul>
+            {% else %}
+                <h1>ALM</h1>
+                <ul>
+                    <li><a href="{{ url_for('auth.register') }}">Register</a>
+                    <li><a href="{{ url_for('auth.login') }}">Log In</a>
+                </ul>
+            {% endif %}
+        </nav>
+
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+
+        {% block section %} {% endblock %}
+
+    </body>
+</html>

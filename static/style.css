@@ -1,0 +1,188 @@
+
+/*
+* Primary color : #101527 
+* Secundary color : #9c0c0c 
+* Accent color : #e3e580 
+*/
+
+html {
+    color: #e3e580;
+    font-family: "Fredoka";
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings: "wdth" 200;
+    background: #101527;
+    padding: 0.5rem;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 400;
+    margin: 1rem;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 300;
+    margin: 1rem;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 200;
+    margin: 1rem;
+}
+
+a {
+    color: #e3e580;
+}
+
+p {
+    text-align: justify;
+    text-justify: inter-character;
+    margin: 1rem;
+}
+
+hr {
+    border: none;
+    border-top: 2px solid #e3e580;
+}
+
+nav { 
+    align-items: center;
+    background: #9c0c0c;
+    display: flex;
+    margin: -1rem;
+    padding: 0.4rem; 
+}
+
+nav h1 { 
+    flex: auto;
+    margin: 0;
+}
+
+nav h1 a { 
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+}
+
+nav ul  { 
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a, nav ul li span, header .action { 
+    display: block;
+    padding: 0.5rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+section {
+    background: #9c0c0c;
+    border: 2px solid #e3e580;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+label {
+    margin-bottom: 1rem;
+}
+
+input {
+    margin-bottom: 1rem;
+}
+
+input[type="text"], input[type="email"], input[type="password"], input[type="number"],
+input[type="date"] {
+    background: #101527;
+    border: 2px solid #e3e580;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #e3e580;
+    padding: 12px 20px;
+    width: 100%; 
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+button, input[type="submit"] {
+    background-color: #e3e580;
+    border: 0px;
+    border-radius: 10px;
+    margin: 2rem;
+    padding: 10px 15px;
+}
+
+button, input[type="submit"]:hover {
+    background-color: #b3b550;
+}
+
+ table {
+    border-collapse: collapse;
+    border:
+    width: 100%;
+}
+
+th {
+    background-color: #101527;
+    color: #e3e580;
+    font-weight: 200;
+    padding: 10px;
+    text-align: center;
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+tr {
+    border-bottom: 1px solid #e3e580;
+}
+
+tr:nth-child(even) {
+    background-color: #7c2c2c;
+}
+
+tr:nth-child(odd) {
+    background-color: #5c1c1c;
+}
+
+tr:hover {
+    background-color: #101527;
+}
+
+.signup, .signin, .repassword, .insert-album {
+    margin: 5% 25% 5% 25%;
+}
+
+.about, .main, .album {
+    margin: 5% 20% 2% 20%;
+}
+
+.flash {
+    background: #e3e580;
+    border: 1px solid #9c0c0c;
+    color: #101527; 
+    margin: 1em 0;
+    padding: 1em;
+}
+
