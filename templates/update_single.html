@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}ALM - Single{% endblock %}
+
+{% block section %}
+    <section class="insert-single">
+        <header>
+            <h2>Single</h2>
+        </header>
+        <hr>
+        <main>
+            <form id="single-form" method="post">
+                <label for="title">Title</label>
+            <input type="text" name="title" id="title"  value="{{ request.form['title'] or single['TITLE'] }}" required>
+
+                <label for="artists">Artists</label>
+                <input type="text" name="artists" id="artists" value="{{ request.form['artists'] or single['ARTISTS'] }}" required>
+
+                <label for="genre">Genre</label>
+                <input type="text" name="genre" id="genre" value="{{ request.form['genre'] or single['GENRE'] }}" required>
+                
+                <label for="subgenre">Subgenre</label>
+                <input type="text" name="subgenre" id="subgenre" value="{{ request.form['subgenre'] or single['SUBGENRE'] }}" required>
+
+                <label for="rating">Rating</label>
+                <input type="number" name="rating" id="rating" value="{{ request.form['rating'] or single['RATING'] }}" required>
+
+                <label for="length">Length</label>
+                <input type="number" name="length" id="length" value="{{ request.form['length'] or single['LENGTH'] }}" required>
+
+                <label for="dt_release">Release Date</label>
+                <input type="date" name="dt_release" id="dt_release" value="{{ request.form['dt_release'] or single['DT_RELEASE'] }}" required>
+
+                <input type="submit" value="Update Single">
+                <button type="button" onclick="document.getElementById('single-form').reset()">Reset Fields</button>
+            </form>
+            <hr>
+                <form action="{{ url_for('index.delete_single', id=single['id']) }}" method="post">
+                    <input class="danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+                </form>
+        </main>
+    </section>
+{% endblock %}

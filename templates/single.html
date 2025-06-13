@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}ALM - Single{% endblock %}
+
+{% block section %}
+    <section class="single">
+        <header>
+            <h2>Single</h2>
+            <a class="action" href="{{ url_for('index.download_singles') }}">Download json</a>
+            <a class="action" href="{{ url_for('index.create_single') }}">New</a>
+        </header>
+        <hr>
+        <main>
+            <table>
+                <thead class="table-header">
+                    <tr>
+                        <th>Title</th>
+                        <th>Artists</th>
+                        <th>Genre</th>
+                        <th>Subgenre</th>
+                        <th>Rating</th>
+                        <th>Length</th>
+                        <th>Release Date</th>
+                        <th>Inserted Date</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="table-rows">
+                    {% for single in g.singles %}
+                        <tr>
+                            <td>{{ single['TITLE'] }}</td>
+                            <td>{{ single['ARTISTS'] }}</td>
+                            <td>{{ single['GENRE'] }}</td>
+                            <td>{{ single['SUBGENRE'] }}</td>
+                            <td>{{ single['RATING'] }}</td>
+                            <td>{{ single['LENGTH'] }}</td>
+                            <td>{{ single['DT_RELEASE'] }}</td>
+                            <td>{{ single['DT_INSERTED'] }}</td>
+                            <td><a class="action" href="{{ url_for('index.update_single', id=single['id']) }}">Edit</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </main>
+    </section>
+{% endblock %}
+
+

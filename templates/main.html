@@ -24,7 +24,11 @@
             <h3>Top 5 Albums</h3>
         </header>
             {% if g.top5_album %}
-                <p>{{ g.top5_album['ARTISTS'] }} - {{ g.top5_album['TITLE'] }}</p>
+                <ol>
+                    {% for album in g.top5_album %}
+                        <li>{{ album['ARTISTS'] }} - {{ album['TITLE'] }}</li>
+                    {% endfor %}
+                </ol>
             {% else %}
                 <p>Your album collection is empty</p>
             {% endif %}
@@ -32,7 +36,11 @@
             <h3>Top 5 Singles</h3>
         </header>
             {% if g.top5_single %}
-                <p>{{ g.top5_single['ARTISTS'] }} - {{ g.top5_single['TITLE'] }}</p>
+                <ol>
+                    {% for single in g.top5_single %}
+                        <li>{{ single['ARTISTS'] }} - {{ single['TITLE'] }}</li>
+                    {% endfor %}
+                </ol>
             {% else %}
                 <p>Your single collection is empty</p>
             {% endif %}

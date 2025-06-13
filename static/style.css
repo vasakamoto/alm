@@ -137,7 +137,6 @@ button, input[type="submit"]:hover {
 
  table {
     border-collapse: collapse;
-    border:
     width: 100%;
 }
 
@@ -170,12 +169,12 @@ tr:hover {
     background-color: #101527;
 }
 
-.signup, .signin, .repassword, .insert-album {
+.signup, .signin, .repassword, .insert-album, .insert-single {
     margin: 5% 25% 5% 25%;
 }
 
-.about, .main, .album {
-    margin: 5% 20% 2% 20%;
+.about, .main, .album, .single, .analytics {
+    margin: 5% 15% 2% 15%;
 }
 
 .flash {

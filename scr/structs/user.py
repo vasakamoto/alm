@@ -8,7 +8,7 @@ class User:
 
     id : str
     email : str
-    nickname : str
+    username : str
     token : str
     db_schema : str
 

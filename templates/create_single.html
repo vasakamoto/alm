@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}ALM - Album{% endblock %}
+
+{% block section %}
+    <section class="insert-single">
+        <header>
+            <h2>Single</h2>
+        </header>
+        <hr>
+        <main>
+            <form id="single-form" method="post">
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" required>
+
+                <label for="artists">Artists</label>
+                <input type="text" name="artists" id="artists" required>
+
+                <label for="genre">Genre</label>
+                <input type="text" name="genre" id="genre" required>
+                
+                <label for="subgenre">Subgenre</label>
+                <input type="text" name="subgenre" id="subgenre" required>
+
+                <label for="rating">Rating</label>
+                <input type="number" name="rating" id="rating" required>
+
+                <label for="length">Length</label>
+                <input type="number" name="length" id="length" required>
+
+                <label for="dt_release">Release Date</label>
+                <input type="date" name="dt_release" id="dt_release" required>
+
+                <input type="submit" value="Append Single">
+                <button type="button" onclick="document.getElementById('single-form').reset()">Reset Fields</button>
+            </form>
+        </main>
+    </section>
+{% endblock %}

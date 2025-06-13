@@ -1,1 +1,58 @@
-<!--analytics-->
+{% extends 'base.html' %}
+
+{% block title %}ALM - Analytics{% endblock %}
+
+{% block section %}
+    <section class="analytics">
+        <header>
+            <h2>Analytics</h2>
+        </header>
+        <hr>
+        <main>
+            <canvas id="myBarChart" width="400" height="200"></canvas>
+
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            
+            <script>
+                var l = "{{ g.count_albums[0] }}"
+                const data = {
+                    labels: l,
+                    datasets: [{
+                        label: 'Quantity of Albuns',
+                        data: "{{ g.count_albums[1] }}",  
+                        backgroundColor: 'rgba(227, 229, 128), 0.4)',
+                        borderColor: 'rgb(16, 21, 39)',
+                        borderWidth: 1
+                    }]
+                };
+
+                const config = {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                enabled: true
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true 
+                            }
+                        }
+                    },
+                };
+
+                const myBarChart = new Chart(
+                    document.getElementById('myBarChart'),
+                    config
+                );
+            </script>
+        </main>
+    </section>
+{% endblock %}
+
